@@ -1,14 +1,10 @@
----
-title : My Booklet
----
-
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 	<head>
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-		<title>{{ site.name }}</title>
+		<title>Jekyll Booklet</title>
 		<link rel="shortcut icon" href="../favicon.ico">
 
 		<!-- Layered Menu -->
@@ -34,35 +30,66 @@ title : My Booklet
 
 				<!-- mp-menu -->
 				<nav id="mp-menu" class="mp-menu">
-							{% if site.tags.first[0] != null %}
+							
 								<div class="mp-level">
 								<h2 class="icon icon-world">Index</h2>
 								<ul>
-								{% for cat in site.tags %}
+								
 									<li class="icon icon-arrow-left">
-										<a class="icon icon-news" href="#">{{ cat[0] | replace:'_',' ' }}</a>
+										<a class="icon icon-news" href="#">About</a>
 										<div class="mp-level">
-											<h2 class="icon icon-news">{{ cat[0] | replace:'_',' ' }}</h2>
+											<h2 class="icon icon-news">About</h2>
 											<ul class="menu-toc">
-												{% for post in cat[1] reversed %}
-													<li class="page-link"><a href="#item">{{ post.title }}</a></li>
-												{% endfor %}
+												
+													<li class="page-link"><a href="#item">Jekyll Booklet</a></li>
+												
 											</ul>
 										</div>
 									</li>
-								{% endfor %}
+								
+									<li class="icon icon-arrow-left">
+										<a class="icon icon-news" href="#">How it Works ?</a>
+										<div class="mp-level">
+											<h2 class="icon icon-news">How it Works ?</h2>
+											<ul class="menu-toc">
+												
+													<li class="page-link"><a href="#item">Naming Conventions</a></li>
+												
+													<li class="page-link"><a href="#item">Index Types</a></li>
+												
+											</ul>
+										</div>
+									</li>
+								
+									<li class="icon icon-arrow-left">
+										<a class="icon icon-news" href="#">Plugins</a>
+										<div class="mp-level">
+											<h2 class="icon icon-news">Plugins</h2>
+											<ul class="menu-toc">
+												
+													<li class="page-link"><a href="#item">Youtube Videos</a></li>
+												
+													<li class="page-link"><a href="#item">Code Highlighting</a></li>
+												
+											</ul>
+										</div>
+									</li>
+								
+									<li class="icon icon-arrow-left">
+										<a class="icon icon-news" href="#">LICENSE</a>
+										<div class="mp-level">
+											<h2 class="icon icon-news">LICENSE</h2>
+											<ul class="menu-toc">
+												
+													<li class="page-link"><a href="#item">Licenses</a></li>
+												
+											</ul>
+										</div>
+									</li>
+								
 								</ul>
 								</div>
-							{% else %}
-								<div class="mp-level" style="overflow:auto;">
-								<h2 class="icon icon-world">Index</h2>
-								<ul>
-								{% for post in site.posts reversed %}
-									<li class="page-link"><a href="#item">{{ post.title }}</a></li>
-								{% endfor %}
-								</ul>
-								</div>
-							{% endif %}			
+										
 						
 				</nav>
 				<!-- /mp-menu -->
@@ -70,19 +97,126 @@ title : My Booklet
 				<div class="scroller"><!-- this is for emulating position fixed of the nav -->
 					<div class="bb-custom-wrapper">
 				<div id="bb-bookblock" class="bb-bookblock">
-					{% for post in site.posts reversed %}
+					
 						<div class="bb-item" id="item">
 							<div class="content">
 								<div class="scroller1">
 									
-									<h2>{{ post.title }}</h2>
+									<h2>Jekyll Booklet</h2>
 									
-									{{ post.content }}
+									<p>Jekyll Booklet is an easy way to publish beautiful, single-paged, simple-indexed HTML Books through <a href="http://jekyllrb.com" target="_blank">Jekyll</a> , &quot;a simple, blog aware, static site generator&quot;. This beautiful theme used to make markdown files appear like pages in a book, is a merge of two awesome layouts, <a href="http://tympanus.net/codrops/2012/12/11/fullscreen-pageflip-layout/" target="_blank">FullScreenBookBlock</a> and <a href="http://tympanus.net/codrops/2013/08/13/multi-level-push-menu/" target="_blank">MultiLevelPushMenu</a>. Only the merge and some modifications were done by <a href="http://chintanghate.herokuapp.com/about" target="_blank">me</a>, the major part of theme is work of <a href="http://tympanus.net/codrops/author/crnacura/" target="_blank">Mary Lou</a> at <a href="http://tympanus.net/codrops/" target="_blank">codrops</a>.</p>
+
+<p>You can flip pages of this booklet, using arrow keys on keyboard, arrow buttons on top-left of page and touch gestures.</p>
+
 								
 								</div>
 							</div>
 						</div>
-					{% endfor %}
+					
+						<div class="bb-item" id="item">
+							<div class="content">
+								<div class="scroller1">
+									
+									<h2>Naming Conventions</h2>
+									
+									<p>Naming conventions are same as the ones followed by Jekyll. You can check them <a href="http://jekyllrb.com/docs/posts/" target="_blank">here</a>. Jekyll Booklet displays posts in ascending order in the index, posts written earlier will be always above the posts written later. YAML front-matter block in your markdown should only contain two things &#39;title&#39; and &#39;tags&#39;. &#39;title&#39; will be converted to page-title and &#39;tags&#39; will be converted into unit names that will be used to categorize articles into Units in Hierchical Index mode. Ideally an article should have a single tag, as a chapter in a book cannot be present in more than one Unit.</p>
+
+<p>Taking this page as example, the page name in _posts directory is &#39;2014-3-2-Naming-Conventions.markdown&#39; and the YAML front matter is</p>
+
+<div class="highlight"><pre><code class="yaml"><span class="err">   </span>   <span class="l-Scalar-Plain">---</span>
+<span class="err">      </span><span class="l-Scalar-Plain">title</span><span class="p-Indicator">:</span> <span class="s">&quot;Naming</span><span class="nv"> </span><span class="s">Conventions&quot;</span>
+<span class="err">      </span><span class="l-Scalar-Plain">tags</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">How_it_Works_?</span>
+<span class="err">      </span><span class="l-Scalar-Plain">---</span>
+</code></pre></div>
+
+<p>The &#39;_&#39; in tag will be replaced by &#39; &#39;(space) in index. </p>
+
+								
+								</div>
+							</div>
+						</div>
+					
+						<div class="bb-item" id="item">
+							<div class="content">
+								<div class="scroller1">
+									
+									<h2>Index Types</h2>
+									
+									<p>There are two types of index available, <a href="simple_index.html" target="_blank">Simple</a> and <a href="hierarchical_index.html" target="_blank">Hierarchical</a> . You cannot use both type at the same time, atleast not right now. If you intend to use the &#39;Simple&#39; style you should not include tags in ANY of your article&#39;s YAML front-matter. Likewise, if you intend to use &#39;Hierarchical&#39; style, you should include one and only one tag in EVERY article&#39;s YAML front-matter. &#39;tags&#39; will be used to classify posts unit-wise. Posts having same tag will fall under same unit inside the index.</p>
+
+								
+								</div>
+							</div>
+						</div>
+					
+						<div class="bb-item" id="item">
+							<div class="content">
+								<div class="scroller1">
+									
+									<h2>Youtube Videos</h2>
+									
+									<p>If you want to link a youtube video in your posts, use the youtube tag like this :</p>
+
+<blockquote>
+<p>{% youtube VpZmIiIXuZ0 %}</p>
+</blockquote>
+
+<p>And the video will be displayed like this</p>
+
+<iframe width="640" height="390" src="http://www.youtube.com/embed/VpZmIiIXuZ0 " frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen style="display:block;margin-left:auto;margin-right:auto;"></iframe>
+
+								
+								</div>
+							</div>
+						</div>
+					
+						<div class="bb-item" id="item">
+							<div class="content">
+								<div class="scroller1">
+									
+									<h2>Code Highlighting</h2>
+									
+									<p>Jekyll booklet uses Highlight.js to highlight code. &#39;Foundation&#39; theme is the default and the only included theme. To use code highlighting place code inside highlight tags like this :</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">  {% highlight text %} 
+      #include &lt;stdio.h&gt;
+      int main()
+      {
+          printf(&quot;Hello World\n&quot;);
+      }
+  {% endhighlight %}
+</code></pre></div>
+<p>And the code will be highlighted like this :</p>
+
+<div class="highlight"><pre><code class="c"> 
+        <span class="err">#</span><span class="n">include</span> <span class="o">&lt;</span><span class="n">stdio</span><span class="p">.</span><span class="n">h</span><span class="o">&gt;</span>
+        <span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Hello World</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+</code></pre></div>
+
+								
+								</div>
+							</div>
+						</div>
+					
+						<div class="bb-item" id="item">
+							<div class="content">
+								<div class="scroller1">
+									
+									<h2>Licenses</h2>
+									
+									<p>This project makes use of Jekyll and layouts from Codrops. So here are their Licensing policies and Terms of Use <a href="https://github.com/jekyll/jekyll/blob/master/LICENSE" target="_blank">Jekyll</a> and <a href="http://tympanus.net/codrops/licensing/" target="_blank">Codrops</a>.</p>
+
+<p>If you like this project or find it useful in some way or other, let me know @ChintanGhate. This project is not yet perfect, as I am not that well versed in JS or CSS, so if you would like to improve it, fork it on github and send pull requests to make it better.</p>
+
+<p>Thank You.</p>
+
+								
+								</div>
+							</div>
+						</div>
+					
 				</div>
 				
 				<nav>
