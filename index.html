@@ -1,0 +1,118 @@
+---
+title : My Booklet
+---
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+		<title>{{ site.name }}</title>
+		<link rel="shortcut icon" href="../favicon.ico">
+
+		<!-- Layered Menu -->
+		<link rel="stylesheet" type="text/css" href="css/icons.css" />
+		<link rel="stylesheet" type="text/css" href="css/component.css" />
+
+		<!-- BookBlock -->
+		<link rel="stylesheet" type="text/css" href="css/jquery.jscrollpane.custom.css" />
+		<link rel="stylesheet" type="text/css" href="css/bookblock.css" />
+		<link rel="stylesheet" type="text/css" href="css/custom.css" />
+		<script src="./js/modernizr.custom.79639.js"></script>
+		
+		<!-- Code Highlighter -->
+		<link rel="stylesheet" href="./highlight/styles/foundation.css">
+        <script src="./highlight/highlight.pack.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+
+	</head>
+	<body>
+		<div class="container" id="container">
+			<!-- Push Wrapper -->
+			<div class="mp-pusher" id="mp-pusher">
+
+				<!-- mp-menu -->
+				<nav id="mp-menu" class="mp-menu">
+							{% if site.tags.first[0] != null %}
+								<div class="mp-level">
+								<h2 class="icon icon-world">Index</h2>
+								<ul>
+								{% for cat in site.tags %}
+									<li class="icon icon-arrow-left">
+										<a class="icon icon-news" href="#">{{ cat[0] | replace:'_',' ' }}</a>
+										<div class="mp-level">
+											<h2 class="icon icon-news">{{ cat[0] | replace:'_',' ' }}</h2>
+											<ul class="menu-toc">
+												{% for post in cat[1] reversed %}
+													<li class="page-link"><a href="#item">{{ post.title }}</a></li>
+												{% endfor %}
+											</ul>
+										</div>
+									</li>
+								{% endfor %}
+								</ul>
+								</div>
+							{% else %}
+								<div class="mp-level" style="overflow:auto;">
+								<h2 class="icon icon-world">Index</h2>
+								<ul>
+								{% for post in site.posts reversed %}
+									<li class="page-link"><a href="#item">{{ post.title }}</a></li>
+								{% endfor %}
+								</ul>
+								</div>
+							{% endif %}			
+						
+				</nav>
+				<!-- /mp-menu -->
+
+				<div class="scroller"><!-- this is for emulating position fixed of the nav -->
+					<div class="bb-custom-wrapper">
+				<div id="bb-bookblock" class="bb-bookblock">
+					{% for post in site.posts reversed %}
+						<div class="bb-item" id="item">
+							<div class="content">
+								<div class="scroller1">
+									
+									<h2>{{ post.title }}</h2>
+									
+									{{ post.content }}
+								
+								</div>
+							</div>
+						</div>
+					{% endfor %}
+				</div>
+				
+				<nav>
+					<span id="bb-nav-prev">&larr;</span>
+					<span id="bb-nav-next">&rarr;</span>
+				</nav>
+				<span id="trigger" class="menu-button"></span>
+			</div>
+				</div><!-- /scroller -->
+				
+			</div><!-- /pusher -->
+
+		</div><!-- /container -->
+		<script src="./js/classie.js"></script>
+		<script src="./js/mlpushmenu.js"></script>
+		<script>
+			new mlPushMenu( document.getElementById( 'mp-menu' ), document.getElementById( 'trigger' ) );
+		</script>
+		<script src="./js/jquery.min.js"></script>
+		<script src="./js/jquery.mousewheel.js"></script>
+		<script src="./js/jquery.jscrollpane.min.js"></script>
+		<script src="./js/jquerypp.custom.js"></script>
+		<script src="./js/jquery.bookblock.js"></script>
+		<script src="./js/page.js"></script>
+		<script>
+			$(function() {
+
+				Page.init();
+
+			});
+		</script>
+	</body>
+</html>
