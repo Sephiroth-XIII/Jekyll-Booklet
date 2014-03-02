@@ -7,12 +7,13 @@ PreRequisite
 ==============
 * [Jekyll](http://jekyllrb.com)
 
-Installation & usage
-==============
-    $ git clone https://github.com/Sephiroth-XIII/Jekyll-Booklet Jekyll-Booklet
-    $ cd Jekyll-Booklet
-    $ jekyll serve
+## Installation
 
-You can now view the generated Documentation for Jekyll booklet at http://localhost:4000
+- Install Jekyll: `gem install jekyll`
+- [Fork this repository](https://github.com/Sephiroth-XIII/Jekyll-Booklet/fork)
+- Clone it: `git clone https://github.com/YOUR-USER/Jekyll-Booklet`
+- Run the jekyll server: `jekyll serve -w`
+
+You can now view the generated Documentation for Jekyll booklet at <http://localhost:4000>
 
   
